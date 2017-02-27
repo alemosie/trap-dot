@@ -38,7 +38,7 @@ def create_board
 end
 
 def run_game
-  # this method should contain all of the logic to play the game, with both successful and unsuccessful outcomes
+  # this method should contain all of the logic to play the game, accounting for successful (find the treasure) and unsuccessful (fall off the board) outcomes!
 end
 
 
