@@ -1,6 +1,7 @@
 require 'colorize'
 require 'pry'
 
+
 def generate_coordinates
   [rand(10), rand(10)]
 end
@@ -53,22 +54,6 @@ def move_down(key_coordinates, current_coordinates)
 end
 
 
-def run_game
-  key_coordinates = generate_coordinates
-  current_coordinates = [0,0]
-  # traps = [generate_coordinates, generate_coordinates, generate_coordinates]
-  print_board(key_coordinates, current_coordinates)
-
-  until key_coordinates == current_coordinates
-    if current_coordinates[0] >= 0 && current_coordinates[1] >= 0
-      get_move(key_coordinates, current_coordinates)
-    else
-      puts "\n\nYou're off the board! Goodbye!\n\n".colorize(:blue)
-      break
-    end
-  end
-end
-
 def get_move(key, current)
   puts "\nYou're at [#{current[0]}, #{current[1]}].\nWhere would you like to move?"
   puts "A) Left"
@@ -88,6 +73,26 @@ def get_move(key, current)
     puts "Invalid response."
   end
 end
+
+
+def run_game
+  key = generate_coordinates
+  current = [0,0]
+  print_board(key, current)
+
+  until key == current
+    if current[0] >= 0 && current[1] >= 0
+      get_move(key, current)
+    else
+      puts "\n\nYou're off the board! Goodbye!\n\n".colorize(:blue)
+      break
+    end
+    if key == current
+      puts "\n\nYou've found the treasure!\n\n".colorize(:green)
+    end
+  end
+end
+
 
 
 run_game
