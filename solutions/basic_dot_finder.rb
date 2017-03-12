@@ -1,5 +1,4 @@
 require 'colorize'
-require 'pry'
 
 
 def generate_coordinates
